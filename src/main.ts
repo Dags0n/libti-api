@@ -6,12 +6,12 @@ async function bootstrap() {
   
   // Habilitando CORS para todas as origens
   app.enableCors({
-    origin: 'http://localhost:3001',  // Permite requisições do frontend
+    origin: 'http://localhost:3000',  // Permite requisições do frontend
     methods: 'GET, POST, PUT, DELETE', // Métodos permitidos
     allowedHeaders: 'Content-Type, Accept',  // Cabeçalhos permitidos
   });
 
-  await app.listen(3000);
+  await app.listen(3005);
 }
 
 bootstrap();

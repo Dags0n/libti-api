@@ -30,6 +30,11 @@ export class UserController {
     return this.userService.findOne(id);
   }
 
+  @Get('email/:email')
+  async findByEmail(@Param('email') email: string): Promise<User | undefined> {
+    return this.userService.findByEmail(email);
+  }
+
   // Criar novo usuário
   @Post()
   async create(@Body() user: Partial<User>): Promise<User> {

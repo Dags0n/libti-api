@@ -1,4 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { UploadBook } from '../upload-books/upload-books.entity';
+import { UploadSubject } from '../upload-subjects/upload-subjects.entity';
 
 @Entity('users')
 export class User {
@@ -16,4 +18,10 @@ export class User {
 
   @Column('bytea', { nullable: true })
   profilePicture: Buffer | null;
+
+  @OneToMany(() => UploadBook, (upload) => upload.user)
+  uploadsBook: UploadBook[];
+
+  @OneToMany(() => UploadSubject, (upload) => upload.user)
+  uploadsSubject: UploadSubject[];
 }

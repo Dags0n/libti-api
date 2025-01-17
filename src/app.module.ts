@@ -8,6 +8,14 @@ import { SubjectModule } from './subject/subject.module';
 import { User } from './user/user.entity';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
+import { UploadBook } from './upload-books/upload-books.entity';
+import { UploadBookModule } from './upload-books/upload-books.module';
+import { UploadSubject } from './upload-subjects/upload-subjects.entity';
+import { UploadSubjectModule } from './upload-subjects/upload-subjects.module';
+import { RequestsSubject } from './requests-subject/requests-subject.entity';
+import { RequestsSubjectModule } from './requests-subject/requests-subject.module';
+import { RequestsBook } from './requests-book/requests-book.entity';
+import { RequestsBookModule } from './requests-book/requests-book.module';
 
 @Module({
   imports: [
@@ -25,7 +33,7 @@ import { AuthModule } from './auth/auth.module';
         username: configService.get<string>('DB_USERNAME'),
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_NAME'),
-        entities: [Book, Subject, User],
+        entities: [Book, Subject, User, UploadBook, UploadSubject, RequestsSubject, RequestsBook],
         synchronize: configService.get<boolean>('DB_SYNCHRONIZE', false),
       }),
     }),
@@ -33,6 +41,10 @@ import { AuthModule } from './auth/auth.module';
     SubjectModule,
     UserModule,
     AuthModule,
+    UploadBookModule,
+    UploadSubjectModule,
+    RequestsSubjectModule,
+    RequestsBookModule,
   ],
   controllers: [],
   providers: [],
