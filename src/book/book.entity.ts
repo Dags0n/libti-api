@@ -26,6 +26,6 @@ export class Book {
   @Column()
   link: string;
 
-  @Column('bytea')
+  @Column('bytea', { nullable: true })
   cover: Buffer;
 }

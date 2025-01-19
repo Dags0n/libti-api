@@ -16,6 +16,7 @@ import { RequestsSubject } from './requests-subject/requests-subject.entity';
 import { RequestsSubjectModule } from './requests-subject/requests-subject.module';
 import { RequestsBook } from './requests-book/requests-book.entity';
 import { RequestsBookModule } from './requests-book/requests-book.module';
+import { EmailModule } from './email/email.module';
 
 @Module({
   imports: [
@@ -45,6 +46,7 @@ import { RequestsBookModule } from './requests-book/requests-book.module';
     UploadSubjectModule,
     RequestsSubjectModule,
     RequestsBookModule,
+    EmailModule,
   ],
   controllers: [],
   providers: [],
