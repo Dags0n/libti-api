@@ -1,6 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import { UploadBook } from '../upload-books/upload-books.entity';
 import { UploadSubject } from '../upload-subjects/upload-subjects.entity';
+import { Post } from '../posts/post.entity';
 
 @Entity('users')
 export class User {
@@ -24,4 +25,7 @@ export class User {
 
   @OneToMany(() => UploadSubject, (upload) => upload.user)
   uploadsSubject: UploadSubject[];
+
+  @OneToMany(() => Post, (post) => post.user) 
+  posts: Post[]; 
 }

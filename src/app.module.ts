@@ -17,6 +17,12 @@ import { RequestsSubjectModule } from './requests-subject/requests-subject.modul
 import { RequestsBook } from './requests-book/requests-book.entity';
 import { RequestsBookModule } from './requests-book/requests-book.module';
 import { EmailModule } from './email/email.module';
+import { Post } from './posts/post.entity';
+import { PostsModule } from './posts/posts.module';
+import { Comment } from './comments/comment.entity';
+import { CommentsModule } from './comments/comments.module';
+import { Vote } from './votes/vote.entity';
+import { VotesModule } from './votes/votes.module';
 
 @Module({
   imports: [
@@ -34,7 +40,7 @@ import { EmailModule } from './email/email.module';
         username: configService.get<string>('DB_USERNAME'),
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_NAME'),
-        entities: [Book, Subject, User, UploadBook, UploadSubject, RequestsSubject, RequestsBook],
+        entities: [Book, Subject, User, UploadBook, UploadSubject, RequestsSubject, RequestsBook, Post, Comment, Vote],
         synchronize: configService.get<boolean>('DB_SYNCHRONIZE', false),
       }),
     }),
@@ -47,6 +53,9 @@ import { EmailModule } from './email/email.module';
     RequestsSubjectModule,
     RequestsBookModule,
     EmailModule,
+    PostsModule,
+    CommentsModule,
+    VotesModule,
   ],
   controllers: [],
   providers: [],
